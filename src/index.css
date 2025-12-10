@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-300 text-slate-900 transition-colors duration-300;
+  }
+  html.dark body {
+    @apply bg-slate-900 text-slate-300;
+  }
+}
+
+/* Tactical Grid Background */
+.bg-grid {
+  background-size: 50px 50px;
+  background-image: linear-gradient(
+      to right,
+      rgba(50, 200, 150, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(50, 200, 150, 0.05) 1px, transparent 1px);
+}
+.dark .bg-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(16, 185, 129, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+}
+
+.section {
+  @apply py-24 relative;
+}
+
+.section-title {
+  @apply text-3xl md:text-5xl font-bold mb-10 md:mb-16 relative inline-block uppercase tracking-wider text-slate-800 dark:text-emerald-400 font-mono;
+}
+
+.section-title::before {
+  content: "// ";
+  @apply text-emerald-500 mr-2 opacity-70;
+}
+
+.glass-panel {
+  @apply bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 shadow-xl;
+}
+
+/* HUD Borders */
+.hud-border {
+  @apply relative border border-slate-300 dark:border-slate-700;
+}
+.hud-border::after {
+  content: "";
+  @apply absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-emerald-500;
+}
+.hud-border::before {
+  content: "";
+  @apply absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-emerald-500;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-950;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-400 dark:bg-emerald-800/50 rounded;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-emerald-600 dark:bg-emerald-600;
+}
